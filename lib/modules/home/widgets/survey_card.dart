@@ -1,5 +1,6 @@
 import 'package:chatform/modules/home/widgets/app_info_tile.dart';
 import 'package:chatform/shared/data/models/survey_model.dart';
+import 'package:chatform/shared/utils/date_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +23,12 @@ class SurveyCard extends StatelessWidget {
             children: [
               AppInfoTile(title: 'Nome', value: survey.name),
               AppInfoTile(title: 'Cidade', value: survey.city),
-              AppInfoTile(title: 'Data de nascimento', value: survey.birthDate),
+              AppInfoTile(
+                title: 'Data de nascimento',
+                value: DateUtil.format(
+                  DateTime.parse(survey.birthDate),
+                ),
+              ),
               AppInfoTile(title: 'Nota', value: survey.rate.toString()),
             ],
           ),

@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 
-import 'home_controller.dart';
+import 'survey_controller.dart';
 
-class HomeBinding extends Bindings {
+class SurveyBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(
-      () => HomeController(),
+      () => SurveyController(),
     );
   }
 }

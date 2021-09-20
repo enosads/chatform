@@ -1,5 +1,6 @@
 import 'package:chatform/shared/data/models/survey_model.dart';
 import 'package:chatform/shared/data/providers/survey_provider.dart';
+import 'package:get/get.dart';
 
 class SurveyRepository {
   final SurveyApiClient apiClient;
@@ -25,4 +26,6 @@ class SurveyRepository {
   Future<Survey?> add(Survey survey) async {
     return await apiClient.add(survey);
   }
+
+  static SurveyRepository get to => Get.find<SurveyRepository>();
 }

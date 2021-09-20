@@ -1,11 +1,16 @@
 import 'package:chatform/shared/data/models/survey_model.dart';
 import 'package:chatform/shared/data/repositories/survey_repository.dart';
+import 'package:chatform/shared/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  final SurveyRepository repository;
+  final repository = SurveyRepository.to;
 
-  HomeController({required this.repository});
+  final _loading = true.obs;
+
+  get loading => _loading.value;
+
+  set loading(val) => _loading.value = val;
 
   final _surveys = <Survey>[].obs;
 
@@ -19,12 +24,16 @@ class HomeController extends GetxController {
     fetchAllSurveys();
   }
 
-  fetchAllSurveys() async {
+  Future fetchAllSurveys() async {
+    loading = true;
     surveys = await repository.getAll();
+    loading = false;
+    return;
   }
 
   static get to => Get.find<HomeController>();
 
-  void handleOpenSurveyForm() {
+  handleOpenSurveyForm() {
+    Get.toNamed(AppRoutes.survey);
   }
 }

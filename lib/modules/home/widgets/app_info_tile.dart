@@ -1,3 +1,4 @@
+import 'package:chatform/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +25,7 @@ class AppInfoTile extends StatelessWidget {
           style: GoogleFonts.roboto(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Get.textTheme.headline1?.color,
+            color: AppColors.primaryPalette.shade900,
           ),
         ),
         Text(
